@@ -1,0 +1,21 @@
+用下面命令下载数据集
+bash ./datasets/download_cyclegan_dataset.sh vangogh2photo
+
+训练网络命令：
+python train.py --dataroot ./datasets/vangogh2photo --name vangogh_cycleGAN --model cycle_gan --gpu_ids 0 --batch_size 2 --niter 10 --niter_decay 20 --result_dir ./result
+
+dataroot 为数据集地址
+--gpu_ids 根据你有几个gpu填，0,1,2,3等等
+训练时每块卡有四个图时占9G多显存，根据显卡自己设计batch size
+
+niter是用初始学习率0.0002训练的epoch数
+niter_decay是用多少个epoch学习率降到0
+result_dir 是我加的option，用来存放训练时，训练集的生成结果
+
+
+测试时候的命令
+python test.py --dataroot ./datasets/vangogh2photo --name vango_cyclegan --model cycle_gan --result_dir ./test_result/ --num_test 50
+
+这里的name要跟训练时候的name相同，结果会存到 result_dir里设定的路径下
+--num_test 设定要对多少图片进行测试
+
