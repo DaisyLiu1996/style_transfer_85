@@ -1,5 +1,5 @@
 ----------------- Options ---------------
-               batch_size: 8                             	[default: 1]
+               batch_size: 32                            	[default: 1]
                     beta1: 0.5                           
           checkpoints_dir: ./checkpoints                 
            continue_train: False                         
@@ -33,13 +33,13 @@
          max_dataset_size: inf                           
                     model: cycle_gan                     
                n_layers_D: 3                             
-                     name: vangogh_cycleGAN              	[default: experiment_name]
+                     name: vangogh_cycleGAN_long         	[default: experiment_name]
                       ndf: 64                            
                      netD: basic                         
                      netG: resnet_9blocks                
                       ngf: 64                            
-                    niter: 20                            	[default: 100]
-              niter_decay: 80                            	[default: 100]
+                    niter: 100                           
+              niter_decay: 100                           
                no_dropout: True                          
                   no_flip: False                         
                   no_html: False                         
@@ -50,7 +50,7 @@
                 pool_size: 50                            
                preprocess: resize_and_crop               
                print_freq: 100                           
-               result_dir: ./result                      
+               result_dir: ./result_long                 	[default: ./result]
              save_by_iter: False                         
           save_epoch_freq: 5                             
          save_latest_freq: 5000                          
