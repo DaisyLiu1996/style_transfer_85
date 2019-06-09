@@ -1,6 +1,3 @@
-用下面命令下载数据集
-bash ./datasets/download_cyclegan_dataset.sh vangogh2photo
-
 训练网络命令：
 python train.py --dataroot ./datasets/vangogh2photo --name vangogh_cycleGAN --model cycle_gan --gpu_ids 0 --batch_size 2 --niter 10 --niter_decay 20 --result_dir ./result
 
