@@ -9,20 +9,6 @@ from os.path import abspath, isdir, join, basename
 
 
 class GetData(object):
-    """A Python script for downloading CycleGAN or pix2pix datasets.
-
-    Parameters:
-        technique (str) -- One of: 'cyclegan' or 'pix2pix'.
-        verbose (bool)  -- If True, print additional information.
-
-    Examples:
-        >>> from util.get_data import GetData
-        >>> gd = GetData(technique='cyclegan')
-        >>> new_data_path = gd.get(save_path='./datasets')  # options will be displayed.
-
-    Alternatively, You can use bash scripts: 'scripts/download_pix2pix_model.sh'
-    and 'scripts/download_cyclegan_model.sh'.
-    """
 
     def __init__(self, technique='cyclegan', verbose=True):
         url_dict = {
@@ -77,21 +63,6 @@ class GetData(object):
         os.remove(temp_save_path)
 
     def get(self, save_path, dataset=None):
-        """
-
-        Download a dataset.
-
-        Parameters:
-            save_path (str) -- A directory to save the data to.
-            dataset (str)   -- (optional). A specific dataset to download.
-                            Note: this must include the file extension.
-                            If None, options will be presented for you
-                            to choose from.
-
-        Returns:
-            save_path_full (str) -- the absolute path to the downloaded data.
-
-        """
         if dataset is None:
             selected_dataset = self._present_options()
         else:
